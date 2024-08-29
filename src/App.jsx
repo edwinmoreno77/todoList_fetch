@@ -2,8 +2,24 @@ import { InputTodoComponent } from "./components/InputTodoComponent";
 import { UlTodoComponent } from "./components/UlTodoComponent";
 import { useTodo } from "./hooks/useTodo";
 import "./App.css";
+import { useState } from "react";
+import { createUser, loginUser } from "./utils/fetch";
 
 function App() {
+  const [account, setAccount] = useState("edwin");
+  const [userSession, setUserSession] = useState({ name: "", todos: [] });
+  const [userApi, setuserApi] = useState({ name: "", id: "" });
+
+  const handleCreateUser = () => {
+    setuserApi(account);
+    createUser(userApi).then((user) => setAccount(user));
+  };
+
+  const handlerLogin = () => {
+    loginUser(userSession).then((userLogin) => setUserSession(userLogin));
+  };
+  console.log(userSession.todos);
+
   const {
     todo,
     setTodo,
@@ -22,7 +38,23 @@ function App() {
   return (
     <>
       <div className="container">
-        <h1 className="title">Todo List</h1>
+        <h1 className="title">Todo List </h1>
+        <h3>{userApi?.name}</h3>
+        <h3>{userSession.name}</h3>
+        <input
+          type="text"
+          name="user"
+          value={account.name}
+          onChange={(e) => setAccount(e.target.value)}
+        />
+        <button onClick={handleCreateUser}>Create user</button>
+        <input
+          type="text"
+          name="name"
+          value={userSession.name}
+          onChange={(e) => setUserSession(e.target.value)}
+        />
+        <button onClick={handlerLogin}>login</button>
         <main className="container_todo">
           <section className="main_container">
             <article>
