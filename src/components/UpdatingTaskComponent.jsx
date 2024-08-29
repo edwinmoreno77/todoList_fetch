@@ -11,7 +11,7 @@ export const UpdatingTaskComponent = ({
       <input
         className="input_updating"
         type="text"
-        value={inputUpdating.task}
+        value={inputUpdating.label}
         onChange={(e) => handleTaskUpdate(e, index)}
         onKeyDown={(e) => handleTaskUpdate(e, index)}
       />

@@ -6,7 +6,7 @@ export const InputTodoComponent = ({ todo, arrayTodo, addTodo, setTodo }) => {
       type="text"
       className="inputTodo_main"
       name="task"
-      value={todo.task}
+      value={todo.label}
       placeholder={`${
         arrayTodo.length > 0
           ? "¿What needs to be done?"
@@ -15,7 +15,7 @@ export const InputTodoComponent = ({ todo, arrayTodo, addTodo, setTodo }) => {
       onChange={(e) =>
         setTodo({
           ...todo,
-          task: e.target.value,
+          label: e.target.value,
         })
       }
       onKeyDown={(e) => addTodo(e)}

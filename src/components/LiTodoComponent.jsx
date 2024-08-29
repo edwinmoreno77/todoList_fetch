@@ -18,7 +18,7 @@ export const LiTodoComponent = ({
   return (
     <div className="option_container">
       <li onClick={() => hanldeDoneTodo(i)}>
-        {task.done ? (
+        {task.is_done ? (
           <span>
             <FontAwesomeIcon icon={faCircleCheck} />
           </span>
@@ -27,7 +27,7 @@ export const LiTodoComponent = ({
             <FontAwesomeIcon icon={faCircle} />
           </span>
         )}
-        {`  ${task.task}`}
+        {`  ${task.label}`}
       </li>
       <div className="show_span">
         <span

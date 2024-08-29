@@ -1,29 +1,29 @@
 import { useState } from "react";
 
 export const useTodo = () => {
-  const [todo, setTodo] = useState({ task: "", done: false });
+  const [todo, setTodo] = useState({ label: "", is_done: false });
   const [arrayTodo, setArrayTodo] = useState([]);
   const [isUpdating, setIsUpdating] = useState(null);
   const [inputUpdating, setInputUpdating] = useState({
-    task: "",
-    done: false,
+    label: "",
+    is_done: false,
   });
 
   const addTodo = (e) => {
-    if (e.key == "Enter" && todo.task !== "") {
-      setArrayTodo([...arrayTodo, { task: todo.task, done: false }]);
-      setTodo({ task: "", done: false });
+    if (e.key == "Enter" && todo.label !== "") {
+      setArrayTodo([...arrayTodo, { label: todo.label, is_done: false }]);
+      setTodo({ label: "", is_done: false });
     }
   };
 
   const deleteTodo = (todo) => {
-    const newArrayTodos = arrayTodo.filter((item) => item.task !== todo.task);
+    const newArrayTodos = arrayTodo.filter((item) => item.label !== todo.label);
     setArrayTodo(newArrayTodos);
   };
 
   const handleTaskUpdate = (e, i) => {
     const { value } = e.target;
-    setInputUpdating({ task: value, done: false });
+    setInputUpdating({ label: value, is_done: false });
 
     // Update the task in the array
     const newArrayTodo = arrayTodo.map((todo, index) =>
@@ -39,7 +39,7 @@ export const useTodo = () => {
   // Toggle the completion status of a task
   const hanldeDoneTodo = (i) => {
     const newArrayTodo = arrayTodo.map((todo, index) =>
-      index === i ? { ...todo, done: !todo.done } : todo
+      index === i ? { ...todo, is_done: !todo.is_done } : todo
     );
     setArrayTodo(newArrayTodo);
   };
