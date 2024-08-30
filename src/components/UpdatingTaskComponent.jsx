@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 export const UpdatingTaskComponent = ({
   inputUpdating,
   handleTaskUpdate,
-  setIsUpdating,
   task,
   setInputUpdating,
 }) => {
@@ -19,9 +18,19 @@ export const UpdatingTaskComponent = ({
             label: e.target.value,
           })
         }
-        onKeyDown={(e) => handleTaskUpdate(e, task.id)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && inputUpdating.label.trim() !== "") {
+            handleTaskUpdate(task.id);
+          }
+        }}
       />
-      <span onClick={() => setIsUpdating(null)}>done</span>
+      <span
+        onClick={() => {
+          handleTaskUpdate(task.id);
+        }}
+      >
+        done
+      </span>
     </div>
   );
 };
@@ -29,7 +38,6 @@ export const UpdatingTaskComponent = ({
 UpdatingTaskComponent.propTypes = {
   inputUpdating: PropTypes.object.isRequired,
   handleTaskUpdate: PropTypes.func.isRequired,
-  setIsUpdating: PropTypes.func.isRequired,
   task: PropTypes.object.isRequired,
   setInputUpdating: PropTypes.func.isRequired,
 };

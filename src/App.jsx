@@ -5,38 +5,39 @@ import "./App.css";
 
 function App() {
   const {
+    // ----- state variables ----
     todo,
-    setTodo,
-    addTodo,
-    arrayTodo,
-    deleteTodo,
-    setArrayTodo,
-    isUpdating,
-    setIsUpdating,
-    inputUpdating,
-    handleTaskUpdate,
-    handleDoneTodo,
-    setInputUpdating,
-    userApi,
-    userSession,
     account,
+    userApi,
+    arrayTodo,
+    isUpdating,
+    userSession,
+    inputUpdating,
+    // ----- sets variables ----
+    setTodo,
     setAccount,
-    handleCreateUser,
-    handlerLogin,
+    setArrayTodo,
+    setIsUpdating,
     setUserSession,
+    setInputUpdating,
+    // ------ function -------
+    addTodo,
+    deleteTodo,
+    handleLogin,
+    handleDoneTodo,
+    handleCreateUser,
+    handleTaskUpdate,
   } = useTodo();
-
-  console.log(arrayTodo);
 
   return (
     <>
       <div className="container">
         <h1 className="title">Todo List </h1>
-        <div>
+        <header>
           <h3>{userApi?.name}</h3>
           <h3>{userSession?.name}</h3>
-        </div>
-        <div style={{ margin: "5px", padding: "5px" }}>
+        </header>
+        <section style={{ margin: "5px", padding: "5px" }}>
           <input
             type="text"
             name="name"
@@ -46,7 +47,7 @@ function App() {
               setUserSession({ ...userSession, name: e.target.value })
             }
           />
-          <button style={{ margin: "5px" }} onClick={handlerLogin}>
+          <button style={{ margin: "5px" }} onClick={handleLogin}>
             login
           </button>
           <input
@@ -58,9 +59,9 @@ function App() {
           <button style={{ margin: "5px" }} onClick={handleCreateUser}>
             Create user
           </button>
-        </div>
-        <main className="container_todo">
-          <section className="main_container">
+        </section>
+        <section className="container_todo">
+          <main className="main_container">
             <article>
               <InputTodoComponent
                 todo={todo}
@@ -74,7 +75,7 @@ function App() {
                 <UlTodoComponent
                   deleteTodo={deleteTodo}
                   arrayTodo={arrayTodo}
-                  isUpdating={isUpdating || null}
+                  isUpdating={isUpdating}
                   setIsUpdating={setIsUpdating}
                   setArrayTodo={setArrayTodo}
                   inputUpdating={inputUpdating}
@@ -85,8 +86,8 @@ function App() {
               )}
             </article>
             <footer className="items">{arrayTodo.length} items</footer>
-          </section>
-        </main>
+          </main>
+        </section>
       </div>
     </>
   );

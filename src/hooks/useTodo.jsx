@@ -23,7 +23,7 @@ export const useTodo = () => {
   const addTodo = (e) => {
     if (e.key == "Enter" && todo.label !== "") {
       createTask(userSession, todo).then(() => {
-        handlerLogin();
+        handleLogin();
       });
       setTodo({ label: "", is_done: false });
     }
@@ -31,28 +31,24 @@ export const useTodo = () => {
 
   const deleteTodo = (todo) => {
     deleteTask(todo.id).then(() => {
-      handlerLogin();
+      handleLogin();
     });
   };
 
-  const handleTaskUpdate = (e, id) => {
-    // Stop updating when Enter is pressed
-    if (e.key === "Enter") {
-      arrayTodo.forEach(async (todo) => {
-        if (todo.id == id) {
-          updateTask(todo.id, {
-            label: inputUpdating.label,
-            is_done: todo.is_done,
-          }).then(() => {
-            handlerLogin();
-          });
-        }
-      });
-      setIsUpdating(null);
-    }
+  const handleTaskUpdate = (id) => {
+    arrayTodo.forEach((todo) => {
+      if (todo.id == id) {
+        updateTask(todo.id, {
+          label: inputUpdating.label,
+          is_done: todo.is_done,
+        }).then(() => {
+          handleLogin();
+        });
+      }
+    });
+    setIsUpdating(null);
   };
 
-  // Toggle the completion status of a task
   const handleDoneTodo = (i) => {
     const newArrayTodo = arrayTodo.map((todo, index) =>
       index === i ? { ...todo, is_done: !todo.is_done } : todo
@@ -65,7 +61,7 @@ export const useTodo = () => {
     createUser(userApi.name).then((user) => setuserApi(user));
   };
 
-  const handlerLogin = () => {
+  const handleLogin = () => {
     loginUser(userSession.name).then((userLogin) => {
       setUserSession(userLogin);
       setArrayTodo(userLogin.todos);
@@ -73,24 +69,27 @@ export const useTodo = () => {
   };
 
   return {
+    // ----- state variables
+    todo,
+    account,
+    userApi,
+    arrayTodo,
+    isUpdating,
+    userSession,
+    inputUpdating,
+    // ----- sets variables ----
+    setTodo,
+    setAccount,
+    setArrayTodo,
+    setIsUpdating,
+    setUserSession,
+    setInputUpdating,
+    // ------function-------
     addTodo,
     deleteTodo,
-    todo,
-    arrayTodo,
-    setTodo,
-    setArrayTodo,
-    isUpdating,
-    setIsUpdating,
-    inputUpdating,
-    setInputUpdating,
-    handleTaskUpdate,
+    handleLogin,
     handleDoneTodo,
     handleCreateUser,
-    handlerLogin,
-    userApi,
-    setAccount,
-    userSession,
-    account,
-    setUserSession,
+    handleTaskUpdate,
   };
 };

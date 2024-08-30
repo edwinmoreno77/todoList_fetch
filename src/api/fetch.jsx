@@ -1,14 +1,15 @@
-// -------------  USER FUNCTION  -----------------
-
 const url = "https://playground.4geeks.com/todo/";
+const headers = {
+  "Content-Type": "application/json",
+};
+
+// ------------- FETCH FUNCTION FOR USERS -----------------
 
 export const createUser = async (name) => {
   try {
     const response = await fetch(`${url}users/${name.name}`, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {
@@ -19,6 +20,7 @@ export const createUser = async (name) => {
     return data;
   } catch (error) {
     console.log("Error capturado en el fetch, 'createUser'", error);
+    return { error: error.message };
   }
 };
 
@@ -26,9 +28,7 @@ export const loginUser = async (user) => {
   try {
     const response = await fetch(`${url}users/${user}`, {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {
@@ -39,28 +39,27 @@ export const loginUser = async (user) => {
     return data;
   } catch (error) {
     console.log("Error capturado en el fetch, 'loginUser' ", error);
+    return { error: error.message };
   }
 };
 
-// -------------  TODO FUNCTION  -----------------
+// ------------- FETCH FUNCTION FOR TODOS -----------------
 
 export const deleteTask = async (id) => {
   try {
     const response = await fetch(`${url}todos/${id}`, {
       method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {
       throw new Error(`Error: ${response.status} ${response.statusText}`);
     }
-    console.log(`task ${id} delete`);
 
     return response.ok;
   } catch (error) {
     console.log("Error capturado en el fetch 'deleteTask' ", error);
+    return { error: error.message };
   }
 };
 
@@ -71,9 +70,7 @@ export const createTask = async (user, task) => {
       {
         method: "POST",
         body: JSON.stringify(task),
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers,
       }
     );
 
@@ -85,6 +82,7 @@ export const createTask = async (user, task) => {
     return data;
   } catch (error) {
     console.log("Error capturado en el fetch, 'createUser'", error);
+    return { error: error.message };
   }
 };
 
@@ -93,19 +91,16 @@ export const updateTask = async (id, task) => {
     const response = await fetch(`${url}todos/${id}`, {
       method: "PUT",
       body: JSON.stringify(task),
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers,
     });
 
     if (!response.ok) {
       throw new Error(`Error: ${response.status} ${response.statusText}`);
     }
-    console.log(`task ${id} updated`);
     const data = await response.json();
-
     return data;
   } catch (error) {
     console.log("Error capturado en el fetch 'updateTask' ", error);
+    return { error: error.message };
   }
 };

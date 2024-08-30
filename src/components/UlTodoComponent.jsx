@@ -15,13 +15,12 @@ export const UlTodoComponent = ({
   return (
     <ul>
       {arrayTodo.map((task, i) => (
-        <div key={i}>
+        <div key={task.id}>
           <div className="li_container">
             {isUpdating === task.id ? (
               <UpdatingTaskComponent
                 inputUpdating={inputUpdating}
                 handleTaskUpdate={handleTaskUpdate}
-                setIsUpdating={setIsUpdating}
                 task={task}
                 setInputUpdating={setInputUpdating}
               />
