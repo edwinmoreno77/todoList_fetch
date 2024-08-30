@@ -36,7 +36,7 @@ function App() {
       <div className="container">
         <h2 className="title">Todo List </h2>
         <header>
-          <h2>{`Bienvenido, ${userApi?.name}`}</h2>
+          <h2>{`Welcome ${userApi?.name}`}</h2>
         </header>
         {userApi?.name === "" ? (
           <Login
@@ -79,7 +79,7 @@ function App() {
         )}
         {userApi?.name !== "" && (
           <button
-            className="btn_logout"
+            className="btn"
             onClick={() => setUserApi({ name: "", id: "" })}
           >
             Logout

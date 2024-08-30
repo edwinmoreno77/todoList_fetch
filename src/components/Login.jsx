@@ -12,6 +12,7 @@ export const Login = ({
     <section style={{ margin: "5px", padding: "5px" }}>
       <div>
         <input
+          className="input_login"
           type="text"
           name="name"
           value={userSession.name}
@@ -20,18 +21,23 @@ export const Login = ({
             setUserSession({ ...userSession, name: e.target.value })
           }
         />
-        <button style={{ margin: "5px" }} onClick={handleLogin}>
+        <button className="btn" style={{ margin: "5px" }} onClick={handleLogin}>
           login
         </button>
       </div>
       <div>
         <input
+          className="input_login"
           type="text"
           name="user"
           value={account}
           onChange={(e) => setAccount(e.target.value)}
         />
-        <button style={{ margin: "5px" }} onClick={handleCreateUser}>
+        <button
+          className="btn"
+          style={{ margin: "5px" }}
+          onClick={handleCreateUser}
+        >
           create account
         </button>
       </div>

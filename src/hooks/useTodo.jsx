@@ -9,11 +9,11 @@ import {
 
 export const useTodo = () => {
   const [todo, setTodo] = useState({ label: "", is_done: false, id: null });
-  const [arrayTodo, setArrayTodo] = useState([]);
-  const [isUpdating, setIsUpdating] = useState(null);
-  const [account, setAccount] = useState("");
-  const [userApi, setUserApi] = useState({ name: "", id: "" });
   const [userSession, setUserSession] = useState({ name: "", todos: [] });
+  const [userApi, setUserApi] = useState({ name: "", id: "" });
+  const [isUpdating, setIsUpdating] = useState(null);
+  const [arrayTodo, setArrayTodo] = useState([]);
+  const [account, setAccount] = useState("");
   const [inputUpdating, setInputUpdating] = useState({
     label: "",
     is_done: false,
