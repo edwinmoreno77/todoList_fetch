@@ -9,7 +9,7 @@ export const UlTodoComponent = ({
   setIsUpdating,
   inputUpdating,
   handleTaskUpdate,
-  hanldeDoneTodo,
+  handleDoneTodo,
   setInputUpdating,
 }) => {
   return (
@@ -27,7 +27,7 @@ export const UlTodoComponent = ({
               />
             ) : (
               <LiTodoComponent
-                hanldeDoneTodo={hanldeDoneTodo}
+                handleDoneTodo={handleDoneTodo}
                 task={task}
                 setIsUpdating={setIsUpdating}
                 setInputUpdating={setInputUpdating}
@@ -46,11 +46,11 @@ export const UlTodoComponent = ({
 UlTodoComponent.propTypes = {
   arrayTodo: PropTypes.arrayOf(PropTypes.object).isRequired,
   deleteTodo: PropTypes.func.isRequired,
-  isUpdating: PropTypes.number.isRequired,
+  isUpdating: PropTypes.number,
   setIsUpdating: PropTypes.func.isRequired,
   setArrayTodo: PropTypes.func.isRequired,
   inputUpdating: PropTypes.object.isRequired,
   handleTaskUpdate: PropTypes.func.isRequired,
-  hanldeDoneTodo: PropTypes.func.isRequired,
+  handleDoneTodo: PropTypes.func.isRequired,
   setInputUpdating: PropTypes.func.isRequired,
 };

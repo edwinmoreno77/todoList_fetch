@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export const LiTodoComponent = ({
-  hanldeDoneTodo,
+  handleDoneTodo,
   task,
   setIsUpdating,
   setInputUpdating,
@@ -17,7 +17,7 @@ export const LiTodoComponent = ({
 }) => {
   return (
     <div className="option_container">
-      <li onClick={() => hanldeDoneTodo(i)}>
+      <li onClick={() => handleDoneTodo(i)}>
         {task.is_done ? (
           <span>
             <FontAwesomeIcon icon={faCircleCheck} />
@@ -50,10 +50,10 @@ export const LiTodoComponent = ({
 };
 
 LiTodoComponent.propTypes = {
-  hanldeDoneTodo: PropTypes.func.isRequiered,
-  task: PropTypes.object.isRequiered,
-  setIsUpdating: PropTypes.func.isRequiered,
-  setInputUpdating: PropTypes.func.isRequiered,
-  deleteTodo: PropTypes.func.isRequiered,
-  i: PropTypes.number.isRequiered,
+  handleDoneTodo: PropTypes.func.isRequired,
+  task: PropTypes.object.isRequired,
+  setIsUpdating: PropTypes.func.isRequired,
+  setInputUpdating: PropTypes.func.isRequired,
+  deleteTodo: PropTypes.func.isRequired,
+  i: PropTypes.number.isRequired,
 };

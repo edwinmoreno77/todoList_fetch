@@ -5,7 +5,7 @@ import {
   deleteTask,
   loginUser,
   updateTask,
-} from "../utils/fetch";
+} from "../api/fetch";
 
 export const useTodo = () => {
   const [todo, setTodo] = useState({ label: "", is_done: false, id: null });
@@ -53,7 +53,7 @@ export const useTodo = () => {
   };
 
   // Toggle the completion status of a task
-  const hanldeDoneTodo = (i) => {
+  const handleDoneTodo = (i) => {
     const newArrayTodo = arrayTodo.map((todo, index) =>
       index === i ? { ...todo, is_done: !todo.is_done } : todo
     );
@@ -84,7 +84,7 @@ export const useTodo = () => {
     inputUpdating,
     setInputUpdating,
     handleTaskUpdate,
-    hanldeDoneTodo,
+    handleDoneTodo,
     handleCreateUser,
     handlerLogin,
     userApi,

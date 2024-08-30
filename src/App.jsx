@@ -15,7 +15,7 @@ function App() {
     setIsUpdating,
     inputUpdating,
     handleTaskUpdate,
-    hanldeDoneTodo,
+    handleDoneTodo,
     setInputUpdating,
     userApi,
     userSession,
@@ -79,7 +79,7 @@ function App() {
                   setArrayTodo={setArrayTodo}
                   inputUpdating={inputUpdating}
                   handleTaskUpdate={handleTaskUpdate}
-                  hanldeDoneTodo={hanldeDoneTodo}
+                  handleDoneTodo={handleDoneTodo}
                   setInputUpdating={setInputUpdating}
                 />
               )}
