@@ -14,7 +14,7 @@ export const UlTodoComponent = ({
 }) => {
   return (
     <ul>
-      {arrayTodo.map((task, i) => (
+      {arrayTodo.map((task) => (
         <div key={task.id}>
           <div className="li_container">
             {isUpdating === task.id ? (
@@ -31,7 +31,6 @@ export const UlTodoComponent = ({
                 setIsUpdating={setIsUpdating}
                 setInputUpdating={setInputUpdating}
                 deleteTodo={deleteTodo}
-                i={i}
               />
             )}
           </div>

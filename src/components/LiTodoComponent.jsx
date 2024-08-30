@@ -13,11 +13,10 @@ export const LiTodoComponent = ({
   setIsUpdating,
   setInputUpdating,
   deleteTodo,
-  i,
 }) => {
   return (
     <div className="option_container">
-      <li onClick={() => handleDoneTodo(i)}>
+      <li onClick={() => handleDoneTodo(task.id)}>
         {task.is_done ? (
           <span>
             <FontAwesomeIcon icon={faCircleCheck} />
@@ -55,5 +54,4 @@ LiTodoComponent.propTypes = {
   setIsUpdating: PropTypes.func.isRequired,
   setInputUpdating: PropTypes.func.isRequired,
   deleteTodo: PropTypes.func.isRequired,
-  i: PropTypes.number.isRequired,
 };

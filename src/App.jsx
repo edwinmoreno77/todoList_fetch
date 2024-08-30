@@ -8,7 +8,7 @@ function App() {
     // ----- state variables ----
     todo,
     account,
-    userApi,
+    // userApi,
     arrayTodo,
     isUpdating,
     userSession,
@@ -34,31 +34,35 @@ function App() {
       <div className="container">
         <h1 className="title">Todo List </h1>
         <header>
-          <h3>{userApi?.name}</h3>
-          <h3>{userSession?.name}</h3>
+          {/* <h3>{userApi?.name}</h3> */}
+          {/* <h3>{userSession?.name}</h3> */}
         </header>
         <section style={{ margin: "5px", padding: "5px" }}>
-          <input
-            type="text"
-            name="name"
-            value={userSession?.name}
-            placeholder=""
-            onChange={(e) =>
-              setUserSession({ ...userSession, name: e.target.value })
-            }
-          />
-          <button style={{ margin: "5px" }} onClick={handleLogin}>
-            login
-          </button>
-          <input
-            type="text"
-            name="user"
-            value={account.name}
-            onChange={(e) => setAccount(e.target.value)}
-          />
-          <button style={{ margin: "5px" }} onClick={handleCreateUser}>
-            Create user
-          </button>
+          <div>
+            <input
+              type="text"
+              name="name"
+              value={userSession?.name}
+              placeholder=""
+              onChange={(e) =>
+                setUserSession({ ...userSession, name: e.target.value })
+              }
+            />
+            <button style={{ margin: "5px" }} onClick={handleLogin}>
+              login
+            </button>
+          </div>
+          <div>
+            <input
+              type="text"
+              name="user"
+              value={account.name}
+              onChange={(e) => setAccount(e.target.value)}
+            />
+            <button style={{ margin: "5px" }} onClick={handleCreateUser}>
+              Create user
+            </button>
+          </div>
         </section>
         <section className="container_todo">
           <main className="main_container">

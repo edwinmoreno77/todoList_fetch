@@ -49,11 +49,17 @@ export const useTodo = () => {
     setIsUpdating(null);
   };
 
-  const handleDoneTodo = (i) => {
-    const newArrayTodo = arrayTodo.map((todo, index) =>
-      index === i ? { ...todo, is_done: !todo.is_done } : todo
-    );
-    setArrayTodo(newArrayTodo);
+  const handleDoneTodo = (id) => {
+    arrayTodo.forEach((todo) => {
+      if (todo.id == id) {
+        updateTask(todo.id, {
+          ...todo,
+          is_done: !todo.is_done,
+        }).then(() => {
+          handleLogin();
+        });
+      }
+    });
   };
 
   const handleCreateUser = () => {
