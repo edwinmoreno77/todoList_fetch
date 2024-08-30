@@ -8,7 +8,7 @@ function App() {
     // ----- state variables ----
     todo,
     account,
-    // userApi,
+    userApi,
     arrayTodo,
     isUpdating,
     userSession,
@@ -32,17 +32,16 @@ function App() {
   return (
     <>
       <div className="container">
-        <h1 className="title">Todo List </h1>
+        <h2 className="title">Todo List </h2>
         <header>
-          {/* <h3>{userApi?.name}</h3> */}
-          {/* <h3>{userSession?.name}</h3> */}
+          <h2>{`Bienvenido, ${userApi?.name}`}</h2>
         </header>
         <section style={{ margin: "5px", padding: "5px" }}>
           <div>
             <input
               type="text"
               name="name"
-              value={userSession?.name}
+              value={userSession.name}
               placeholder=""
               onChange={(e) =>
                 setUserSession({ ...userSession, name: e.target.value })
@@ -56,7 +55,7 @@ function App() {
             <input
               type="text"
               name="user"
-              value={account.name}
+              value={account}
               onChange={(e) => setAccount(e.target.value)}
             />
             <button style={{ margin: "5px" }} onClick={handleCreateUser}>

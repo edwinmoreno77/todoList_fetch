@@ -7,7 +7,7 @@ const headers = {
 
 export const createUser = async (name) => {
   try {
-    const response = await fetch(`${url}users/${name.name}`, {
+    const response = await fetch(`${url}users/${name}`, {
       method: "POST",
       headers,
     });
