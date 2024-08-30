@@ -1,6 +1,7 @@
 import { InputTodoComponent } from "./components/InputTodoComponent";
 import { UlTodoComponent } from "./components/UlTodoComponent";
 import { useTodo } from "./hooks/useTodo";
+import { Login } from "./components/Login";
 import "./App.css";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     inputUpdating,
     // ----- sets variables ----
     setTodo,
+    setUserApi,
     setAccount,
     setArrayTodo,
     setIsUpdating,
@@ -36,61 +38,53 @@ function App() {
         <header>
           <h2>{`Bienvenido, ${userApi?.name}`}</h2>
         </header>
-        <section style={{ margin: "5px", padding: "5px" }}>
-          <div>
-            <input
-              type="text"
-              name="name"
-              value={userSession.name}
-              placeholder=""
-              onChange={(e) =>
-                setUserSession({ ...userSession, name: e.target.value })
-              }
-            />
-            <button style={{ margin: "5px" }} onClick={handleLogin}>
-              login
-            </button>
-          </div>
-          <div>
-            <input
-              type="text"
-              name="user"
-              value={account}
-              onChange={(e) => setAccount(e.target.value)}
-            />
-            <button style={{ margin: "5px" }} onClick={handleCreateUser}>
-              Create user
-            </button>
-          </div>
-        </section>
-        <section className="container_todo">
-          <main className="main_container">
-            <article>
-              <InputTodoComponent
-                todo={todo}
-                arrayTodo={arrayTodo}
-                addTodo={addTodo}
-                setTodo={setTodo}
-              />
-              {arrayTodo?.length == 0 ? (
-                <h2 className="add_task_h2">Add task</h2>
-              ) : (
-                <UlTodoComponent
-                  deleteTodo={deleteTodo}
+        {userApi?.name === "" ? (
+          <Login
+            userSession={userSession}
+            setUserSession={setUserSession}
+            handleLogin={handleLogin}
+            setAccount={setAccount}
+            account={account}
+            handleCreateUser={handleCreateUser}
+          />
+        ) : (
+          <section className="container_todo">
+            <main className="main_container">
+              <article>
+                <InputTodoComponent
+                  todo={todo}
                   arrayTodo={arrayTodo}
-                  isUpdating={isUpdating}
-                  setIsUpdating={setIsUpdating}
-                  setArrayTodo={setArrayTodo}
-                  inputUpdating={inputUpdating}
-                  handleTaskUpdate={handleTaskUpdate}
-                  handleDoneTodo={handleDoneTodo}
-                  setInputUpdating={setInputUpdating}
+                  addTodo={addTodo}
+                  setTodo={setTodo}
                 />
-              )}
-            </article>
-            <footer className="items">{arrayTodo.length} items</footer>
-          </main>
-        </section>
+                {arrayTodo?.length == 0 ? (
+                  <h2 className="add_task_h2">Add task</h2>
+                ) : (
+                  <UlTodoComponent
+                    deleteTodo={deleteTodo}
+                    arrayTodo={arrayTodo}
+                    isUpdating={isUpdating}
+                    setIsUpdating={setIsUpdating}
+                    setArrayTodo={setArrayTodo}
+                    inputUpdating={inputUpdating}
+                    handleTaskUpdate={handleTaskUpdate}
+                    handleDoneTodo={handleDoneTodo}
+                    setInputUpdating={setInputUpdating}
+                  />
+                )}
+              </article>
+              <footer className="items">{arrayTodo.length} items</footer>
+            </main>
+          </section>
+        )}
+        {userApi?.name !== "" && (
+          <button
+            className="btn_logout"
+            onClick={() => setUserApi({ name: "", id: "" })}
+          >
+            Logout
+          </button>
+        )}
       </div>
     </>
   );

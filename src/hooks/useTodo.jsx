@@ -12,7 +12,7 @@ export const useTodo = () => {
   const [arrayTodo, setArrayTodo] = useState([]);
   const [isUpdating, setIsUpdating] = useState(null);
   const [account, setAccount] = useState("");
-  const [userApi, setuserApi] = useState({ name: "", id: "" });
+  const [userApi, setUserApi] = useState({ name: "", id: "" });
   const [userSession, setUserSession] = useState({ name: "", todos: [] });
   const [inputUpdating, setInputUpdating] = useState({
     label: "",
@@ -67,7 +67,7 @@ export const useTodo = () => {
       loginUser(user.name).then((userLogin) => {
         setUserSession(userLogin);
         setArrayTodo(userLogin.todos);
-        setuserApi(userLogin);
+        setUserApi(userLogin);
       });
     });
   };
@@ -76,7 +76,7 @@ export const useTodo = () => {
     loginUser(userSession.name).then((userLogin) => {
       setUserSession(userLogin);
       setArrayTodo(userLogin.todos);
-      setuserApi(userLogin);
+      setUserApi(userLogin);
     });
   };
 
@@ -91,6 +91,7 @@ export const useTodo = () => {
     inputUpdating,
     // ----- sets variables ----
     setTodo,
+    setUserApi,
     setAccount,
     setArrayTodo,
     setIsUpdating,

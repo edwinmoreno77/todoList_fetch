@@ -141,6 +141,22 @@ input:focus {
   justify-content: space-between;
 }
 
+.btn_logout {
+  background: linear-gradient(120deg, rgb(5, 114, 177), rgb(75, 126, 138) 70%);
+  box-shadow: 2px 2px 5px 2px rgb(43, 55, 58);
+  font-family: cursive;
+  border-radius: 5px;
+  padding: 5px 13px;
+  margin: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btn_logout:hover {
+  color: white;
+  filter: brightness(120%);
+}
 @media (max-width: 715px) {
   .container_todo {
     min-height: 300px;
