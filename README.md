@@ -43,7 +43,7 @@ npm run dev
 
 ![Todo List Image 1](https://github.com/edwinmoreno77/todoList_fetch/blob/main/src/assets/todoList_fetch_1.jpg?raw=true)
 
-![Todo List Image 2](https://github.com/edwinmoreno77/todoList_fetch/blob/main/src/assets/todoList_fetch_1.jpg?raw=true)
+![Todo List Image 2](https://github.com/edwinmoreno77/todoList_fetch/blob/main/src/assets/todoList_fetch_2.jpg?raw=true)
 
 ## File Structure
 
