@@ -20,7 +20,7 @@ git clone https://github.com/edwinmoreno77/todoList_fetch
 2. Navigate to the project directory:
 
 ```
-cd todo_list_project_4Geeks_bootcamp
+cd todoList_fetch
 ```
 
 3. Install the dependencies:

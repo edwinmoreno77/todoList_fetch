@@ -73,7 +73,7 @@ function App() {
                   />
                 )}
               </article>
-              <footer className="items">{arrayTodo.length} items</footer>
+              <footer className="items">{arrayTodo?.length} items</footer>
             </main>
           </section>
         )}
