@@ -47,6 +47,10 @@ npm run dev
 
 ## File Structure
 
+## src/api/
+
+- fetch.jsx - Functions to interact with the API for user and task management.
+
 ### src/components/
 
 - InputTodoComponent.jsx - Component for inputting new tasks.
