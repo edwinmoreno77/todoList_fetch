@@ -7,7 +7,6 @@ A simple Todo List application built with React. This app allows users to add, u
 - [Installation](#installation)
 - [Usage](#usage)
 - [File Structure](#file-structure)
-- [Components](#components)
 - [Contributing](#contributing)
 
 ## Installation
@@ -15,7 +14,7 @@ A simple Todo List application built with React. This app allows users to add, u
 1. Clone the repository:
 
 ```
-git clone https://github.com/edwinmoreno77/todo_list_project_4Geeks_bootcamp.git
+git clone https://github.com/edwinmoreno77/todoList_fetch
 ```
 
 2. Navigate to the project directory:
@@ -42,9 +41,9 @@ npm run dev
 
 ### Main Screen
 
-![Todo List Image 1](https://github.com/edwinmoreno77/todo_list_project_4Geeks_bootcamp/blob/main/src/assets/todoList_img-1.jpg?raw=true)
+![Todo List Image 1](https://github.com/edwinmoreno77/todoList_fetch/blob/main/src/assets/todoList_fetch_1.jpg?raw=true)
 
-![Todo List Image 2](https://github.com/edwinmoreno77/todo_list_project_4Geeks_bootcamp/blob/main/src/assets/todoList_img-2.jpg?raw=true)
+![Todo List Image 2](https://github.com/edwinmoreno77/todoList_fetch/blob/main/src/assets/todoList_fetch_1.jpg?raw=true)
 
 ## File Structure
 
@@ -54,6 +53,7 @@ npm run dev
 - LiTodoComponent.jsx - Component for displaying individual tasks with options.
 - UlTodoComponent.jsx - Component for displaying the list of tasks.
 - UpdatingTaskComponent.jsx - Component for updating existing tasks.
+- Login.jsx - component for login and create accound
 
 ### src/hooks/
 
@@ -63,53 +63,6 @@ npm run dev
 
 - App.jsx - Main application component.
 - App.css - Styles for the application.
-
-## Components
-
-App.jsx
-
-- Main component that integrates all other components and manages state using the useTodo hook.
-
-InputTodoComponent.jsx
-
-- Provides an input field for adding new tasks.
-  Props:
-  - todo: Current task state.
-  - arrayTodo: Array of tasks.
-  - addTodo: Function to add a new task.
-
-LiTodoComponent.jsx
-
-- Displays individual tasks with options to mark as done, edit, or delete.
-  Props:
-  - hanldeDoneTodo: Function to toggle task completion.
-  - task: Task object.
-  - setIsUpdating: Function to set the task for updating.
-  - setInputUpdating: Function to set the input for updating.
-  - deleteTodo: Function to delete a task.
-  - i: Index of the task.
-
-UlTodoComponent.jsx
-
-- Renders the list of tasks, either displaying the LiTodoComponent or UpdatingTaskComponent based on the current state.
-  Props:
-  - arrayTodo: Array of tasks.
-  - deleteTodo: Function to delete a task.
-  - isUpdating: Index of the task being updated.
-  - setIsUpdating: Function to set the task for updating.
-  - inputUpdating: Current input for updating.
-  - handleTaskUpdate: Function to handle task updates.
-  - hanldeDoneTodo: Function to toggle task completion.
-  - setInputUpdating: Function to set the input for updating.
-
-UpdatingTaskComponent.jsx
-
-- Provides an input field for updating a task and a button to confirm the update.
-  Props:
-  - inputUpdating: Current input for updating.
-  - handleTaskUpdate: Function to handle task updates.
-  - setIsUpdating: Function to stop updating.
-  - index: Index of the task being updated.
 
 ## Contributing
 
