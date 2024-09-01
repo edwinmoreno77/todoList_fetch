@@ -12,6 +12,11 @@ export const createUser = async (name) => {
       headers,
     });
 
+    if (response.statusText == "Bad Request") {
+      const data = await response.json();
+      return data;
+    }
+
     if (!response.ok) {
       throw new Error(`Error: ${response.status} ${response.statusText}`);
     }
@@ -31,11 +36,16 @@ export const loginUser = async (user) => {
       headers,
     });
 
+    if (response.statusText == "Not Found") {
+      const data = await response.json();
+      return data;
+    }
+
     if (!response.ok) {
       throw new Error(`Error: ${response.status} ${response.statusText}`);
     }
-    const data = await response.json();
 
+    const data = await response.json();
     return data;
   } catch (error) {
     console.log("Error capturado en el fetch, 'loginUser' ", error);

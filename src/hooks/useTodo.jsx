@@ -64,19 +64,27 @@ export const useTodo = () => {
 
   const handleCreateUser = () => {
     createUser(account).then((user) => {
-      loginUser(user.name).then((userLogin) => {
-        setUserSession(userLogin);
-        setArrayTodo(userLogin.todos);
-        setUserApi(userLogin);
-      });
+      if (user.detail) {
+        alert(user.detail);
+      } else {
+        loginUser(user.name).then((userLogin) => {
+          setUserSession(userLogin);
+          setArrayTodo(userLogin.todos);
+          setUserApi(userLogin);
+        });
+      }
     });
   };
 
   const handleLogin = () => {
     loginUser(userSession.name).then((userLogin) => {
-      setUserSession(userLogin);
-      setArrayTodo(userLogin.todos);
-      setUserApi(userLogin);
+      if (userLogin.detail) {
+        alert(userLogin.detail);
+      } else {
+        setUserSession(userLogin);
+        setArrayTodo(userLogin.todos);
+        setUserApi(userLogin);
+      }
     });
   };
 
